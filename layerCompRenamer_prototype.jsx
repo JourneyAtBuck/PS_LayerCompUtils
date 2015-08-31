@@ -3,15 +3,26 @@
 
     #target photoshop
 
-    if (app.documents.length > 0) {
+    
+    function main() {
+        
+        var dlgMain = new Window("dialog", "Test Dialog");
+    
+        // match our dialog background color to the host application
+        var brush = dlgMain.graphics.newBrush(dlgMain.graphics.BrushType.THEME_COLOR, "appDialogBackground");
 
-        var myDocument = app.activeDocument;
-        var selectedComps = new Array();
+        
+        if (app.documents.length > 0) {
 
-        for (var m = 0; m < myDocument.layerComps.length; m++) {
-            if (myDocument.layerComps[m].selected){
-                myDocument.layerComps[m].name = "susanIsAWESOME_"+m.toString();
+            var myDocument = app.activeDocument;
+            var selectedComps = new Array();
+
+            for (var m = 0; m < myDocument.layerComps.length; m++) {
+                if (myDocument.layerComps[m].selected){
+                    myDocument.layerComps[m].name = "susanIsAWESOME_"+m.toString();
+                }
             }
         }
     }
+    main();
 }
